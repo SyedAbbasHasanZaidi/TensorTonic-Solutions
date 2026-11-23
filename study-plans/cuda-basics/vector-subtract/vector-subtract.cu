@@ -3,10 +3,11 @@
 __global__ void vector_sub(const float* A, const float* B, float* C, int N) {
     // Store N element-wise results in C; this kernel returns no value.
     int i = blockIdx.x *blockDim.x + threadIdx.x;
-    if(i<N){
+
+    if(i < N){
         C[i] = A[i] - B[i];
     }
-    
+    return;
 }
 
 extern "C" void solve(const float* A, const float* B, float* C, int N) {
